@@ -14,16 +14,18 @@ def intro1():
 
 @app.route('/webhook', methods=['POST', 'GET'])
 def login():
-    # if request.method == 'GET':
-    #     print(request)
-    #     return "", 200
-    # else:
-    #     return "", 400
-    args = request.args
-    challenge = args.get("hub.challenge")
-    print(request)
-    # print("rohittttttttttttttt ----->>>" + request.args)
-    return challenge, 200
+    if request.method == 'GET':
+        args = request.args
+        mode = args.get("hub.mode")
+        token = args.get("hub.token")
+        challenge = args.get("hub.challenge")
+
+        if mode and token:
+            if mode == "subscribe" and token == Token:
+                print("WEBHOOK_VERIFIED")
+        return challenge, 200
+    else:
+        return "", 403
 
 
 if __name__ == '__main__':
