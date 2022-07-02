@@ -19,9 +19,10 @@ def login():
     #     return "", 200
     # else:
     #     return "", 400
-    print("rohittttttttttttttt ----->>>" + request)
-    return request.hub.challenge, 200
-
+    args = request.args
+    challenge = args.get("hub.challenge")
+    print("rohittttttttttttttt ----->>>" + request.args)
+    return challenge, 200
 
 
 if __name__ == '__main__':
