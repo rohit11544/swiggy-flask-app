@@ -21,6 +21,7 @@ def login():
     #     return "", 400
     args = request.args
     challenge = args.get("hub.challenge")
+    print(request)
     # print("rohittttttttttttttt ----->>>" + request.args)
     return challenge, 200
 
