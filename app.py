@@ -23,7 +23,7 @@ def login():
         if mode and token:
             if mode == "subscribe" and token == Token:
                 print("WEBHOOK_VERIFIED")
-        return "challenge", 200
+        return "challenge", 400
     else:
         return "", 403
 
