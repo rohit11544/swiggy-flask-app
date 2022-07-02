@@ -14,11 +14,13 @@ def intro1():
 
 @app.route('/webhook', methods=['POST', 'GET'])
 def login():
-    if request.method == 'GET':
-        print(request)
-        return "", 200
-    else:
-        return "", 400
+    # if request.method == 'GET':
+    #     print(request)
+    #     return "", 200
+    # else:
+    #     return "", 400
+    return request.hub.challenge, 200
+
 
 
 if __name__ == '__main__':
