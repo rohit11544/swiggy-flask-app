@@ -19,7 +19,7 @@ def login():
         mode = args.get("hub.mode")
         token = args.get("hub.token")
         challenge = args.get("hub.challenge")
-        print("its workinggggggggggggggggggggggg")
+        print("request came")
         if mode and token:
             if mode == "subscribe" and token == Token:
                 print("WEBHOOK_VERIFIED")
@@ -29,7 +29,9 @@ def login():
         else:
             return "mode or token is empty", 402
     if request.method == 'POST':
-
+        print("its a post request and its working")
+        print(request)
+        print("request printeddddddd!!!!!!!!!")
         return "its a post request", 205
 
 
