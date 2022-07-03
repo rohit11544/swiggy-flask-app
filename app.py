@@ -25,10 +25,12 @@ def login():
                 print("WEBHOOK_VERIFIED")
                 return challenge, 205
             else:
-                return "", 403
+                return "token not matching", 401
+        else:
+            return "mode or token is empty", 402
     if request.method == 'POST':
 
-        return "worked", 205
+        return "its a post request", 205
 
 
 if __name__ == '__main__':
