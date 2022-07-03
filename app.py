@@ -30,8 +30,8 @@ def login():
             return "mode or token is empty", 402
     if request.method == 'POST':
         print("its a post request and its working")
-        print(request)
-        print("request printeddddddd!!!!!!!!!")
+        print(request.json)
+        print("request json printeddddddd!!!!!!!!!")
         return "its a post request", 205
 
 
