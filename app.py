@@ -33,10 +33,6 @@ def login():
         print("its a post request and its working")
         print(request.json)
         print("request json printeddddddd!!!!!!!!!")
-        response = requests.post(
-            'http://\n  https://graph.facebook.com/v13.0/101107396000662/messages ')
-        print(response.json)
-        print("response json printeddddddd!!!!!!!!!")
         return "its a post request", 205
 
 
