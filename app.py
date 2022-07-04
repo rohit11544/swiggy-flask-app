@@ -1,5 +1,6 @@
 import os
 from flask import Flask, redirect, request, url_for, render_template
+import requests
 from dotenv import load_dotenv
 load_dotenv()
 Token = os.getenv("TOKEN")
@@ -32,6 +33,10 @@ def login():
         print("its a post request and its working")
         print(request.json)
         print("request json printeddddddd!!!!!!!!!")
+        response = requests.post(
+            'http://\n  https://graph.facebook.com/v13.0/101107396000662/messages ')
+        print(response.json)
+        print("response json printeddddddd!!!!!!!!!")
         return "its a post request", 205
 
 
