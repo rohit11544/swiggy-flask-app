@@ -32,7 +32,7 @@ def login():
     if request.method == 'POST':
         print("its a post request and its working")
         print(request.json)
-        rj = request.json()
+        rj = request.json
         mtype = rj['entry'][0]['changes'][0]['value']['messages'][0]['type']
         mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
         print("media iddddd " + mid)
