@@ -3,7 +3,7 @@ import requests
 def download_file(accessToken,media_id):
     local_filename = media_id + '.ogg'
     headers = {
-    'Authorization': 'Bearer '+accessToken,
+    'Authorization': 'Bearer EAAOd0ul3j9YBACaIjS7MCobO5ad1AZAxZBOVudAFDjfa0fExzyYzZCSCeOQId8ykQXSLkgSWJfwZCt3vxZBMBJOsCaZApcIZArQCQumsTRBkPgaR5EC1ZA36Hjh2XQqvpLyhPtyq6qEf7sjItrFVLW9KMqrK0iLCDxJd5KhmkgPb9L9rZAJ6RjbXf9FcptA8HkDeelzrm4CPZAa6lUXoOwK1C5cMgDuPZA4AELdfZB1A8wqrdAZDZD',
     }
     response = requests.get('https://graph.facebook.com/v13.0/'+media_id, headers=headers)
     response_json = response.json()
