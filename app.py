@@ -38,7 +38,7 @@ def login():
         if(mtype == 'audio'):
             mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
             print("media iddddd " + mid)
-            download_file(mid,AccessToken)
+            download_file(AccessToken,mid)
         else:
             print("its not an audio msz!!!")
         return "its a post request", 205
