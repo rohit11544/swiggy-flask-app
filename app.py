@@ -39,7 +39,7 @@ def login():
             mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
             print("media iddddd " + mid)
             filename = download_file(AccessToken,mid)
-            print('downloaded with file name : ', filename)
+            print('downloaded with file name : ok ', filename)
         else:
             print("its not an audio msz!!!")
         return "its a post request", 205
