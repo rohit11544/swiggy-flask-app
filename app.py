@@ -34,7 +34,10 @@ def login():
         print(request.json)
         rj = request.json
         mtype = rj['entry'][0]['changes'][0]['value']['messages'][0]['type']
-        mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
+        if(mtype == 'audio'):
+            mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
+        else:
+            mid = 'no mid due to its a text msz!!!!'
         print("media iddddd " + mid)
         print("media type "+ mtype)
         print("request json printeddddddd!!!!!!!!!")
