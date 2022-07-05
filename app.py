@@ -1,5 +1,5 @@
 import os
-from flask import Flask, redirect, request, url_for, render_template
+from flask import Flask, request
 import requests
 from dotenv import load_dotenv
 load_dotenv()
@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def intro1():
-    return "<h1>Hello World </h1>" + Token
+    return "<h1>Hello World from macOS!!</h1>" + Token
 
 
 @app.route('/webhook', methods=['POST', 'GET'])
@@ -21,15 +21,14 @@ def login():
         token = args.get("hub.token")
         challenge = args.get("hub.challenge")
         print("request came")
-        # if mode and token:
-        #     if mode == "subscribe" and token == Token:
-        #         print("WEBHOOK_VERIFIED")
-        #         return challenge, 200
-        #     else:
-        #         return "token not matching", 401
-        # else:
-        #     return "mode or token is empty", 402
-        return challenge, 200
+        if mode and token:
+            if mode == "subscribe" and token == Token:
+                print("WEBHOOK_VERIFIED")
+                return challenge, 200
+            else:
+                return "token not matching", 401
+        else:
+            return "mode or token is empty", 402
     if request.method == 'POST':
         print("its a post request and its working")
         print(request.json)
