@@ -1,9 +1,10 @@
 import os
 from flask import Flask, request
-import requests
+from helper import download_file
 from dotenv import load_dotenv
 load_dotenv()
 Token = os.getenv("TOKEN")
+AccessToken = os.getenv("ACCESS_TOKEN")
 
 app = Flask(__name__)
 
@@ -36,11 +37,10 @@ def login():
         mtype = rj['entry'][0]['changes'][0]['value']['messages'][0]['type']
         if(mtype == 'audio'):
             mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
+            print("media iddddd " + mid)
+            download_file(mid,AccessToken)
         else:
-            mid = 'no mid due to its a text msz!!!!'
-        print("media iddddd " + mid)
-        print("media type "+ mtype)
-        print("request json printeddddddd!!!!!!!!!")
+            print("its not an audio msz!!!")
         return "its a post request", 205
 
 
