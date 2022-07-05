@@ -10,7 +10,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def intro1():
-    return "<h1>Hello World from macOS!!</h1>" + Token
+    return "<h1>Hello World from macOS and heroku!!</h1>" + Token
 
 
 @app.route('/webhook', methods=['POST', 'GET'])
