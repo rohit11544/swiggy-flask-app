@@ -19,7 +19,10 @@ app = Flask(__name__)
 
 @app.route('/')
 def intro1():
-    return "<h1>Hello World from macOS and heroku and corrected!!</h1>" + Token + AccessToken
+    if is_prod:
+        return "<h1>Hello World from macOS and heroku and corrected!!</h1>" + Token + AccessToken
+    else:
+        return "not working"
 
 
 @app.route('/webhook', methods=['POST', 'GET'])
