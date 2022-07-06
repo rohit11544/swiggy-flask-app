@@ -1,4 +1,5 @@
 import os
+from os.path import exists
 from flask import Flask, request
 from helper import download_file,find_audio_path
 from dotenv import load_dotenv
@@ -49,10 +50,13 @@ def login():
         if(mtype == 'audio'):
             mid = rj['entry'][0]['changes'][0]['value']['messages'][0]['audio']['id']
             print("media iddddd " + mid)
-            filename = download_file(AccessToken,mid)
-            print('downloaded with file name : ok ', filename)
-            file_path=find_audio_path(mid+'.ogg',f"{os.getcwd()}/"+mid+".ogg")
-            print("This is the file path bro!!!!! " , file_path)
+            file_path = download_file(AccessToken,mid)
+            print('downloaded with file name : ok ', file_path)
+            file_exists = exists(file_path)
+            if file_exists:
+                print("it worked man!!!!", file_exists)
+            else:
+                print("try another way man!!!", file_exists)
         else:
             print("its not an audio msz!!!")
         return "its a post request", 205
