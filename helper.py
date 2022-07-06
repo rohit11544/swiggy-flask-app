@@ -26,9 +26,9 @@ def sendMsz(AccessToken,phone_num,phone_num_id,body):
     'to': phone_num,
     'type': 'template',
     'template': {
-        'name': 'hello_world',
+        'name': 'asr_cart',
         'language': {
-            'code': 'en_US',
+            'code': 'en_UK',
         },
     },
   }
