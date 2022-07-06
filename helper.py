@@ -1,10 +1,6 @@
 import requests
 import os
 
-# opts = {
-#   "outtmpl": f"{os.getcwd()}/"
-# }
-
 
 def download_file(accessToken,media_id):
     local_filename = f"{os.getcwd()}/audioFiles/"+media_id + '.ogg'
@@ -21,7 +17,3 @@ def download_file(accessToken,media_id):
                 f.write(chunk)
     return local_filename
 
-
-def find_audio_path(name, path):
-    for root, dirs, files in os.walk(path):
-        return os.path.join(root, name)
