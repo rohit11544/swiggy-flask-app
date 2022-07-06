@@ -1,7 +1,7 @@
 import os
 from os.path import exists
 from flask import Flask, request
-from helper import download_file
+from helper import download_file,sendMsz
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -55,6 +55,14 @@ def login():
             file_exists = exists(file_path)
             if file_exists:
                 print("it worked man!!!!", file_exists)
+                cart = "cart output will be stored here!!!"
+                phone_id = rj['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id'] # phone number
+                phone_number_id = rj['entry'][0]['changes'][0]['value']['metadata']['phone_number_id'] # phone number id
+                sendMsz_res = sendMsz(AccessToken,phone_id,phone_number_id,cart)
+                if sendMsz_res==200:
+                    print("cart sent successifully!!!!")
+                else:
+                    print("try another code!")
             else:
                 print("try another way man!!!", file_exists)
         else:

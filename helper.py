@@ -17,3 +17,18 @@ def download_file(accessToken,media_id):
                 f.write(chunk)
     return local_filename
 
+def sendMsz(AccessToken,phone_num,phone_num_id,body):
+  headers = {
+      'Authorization': 'Bearer '+AccessToken,
+  }
+
+  json_data = {
+      'messaging_product': 'whatsapp',
+      'to': '91'+phone_num,
+      'type': 'text',
+    "text": {
+          "body": body
+      }
+  }
+  response = requests.post('https://graph.facebook.com/v13.0/'+phone_num_id+'/messages', headers=headers, json=json_data)
+  return response.status_code
