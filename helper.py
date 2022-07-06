@@ -1,9 +1,9 @@
 import requests
 
 def download_file(accessToken,media_id):
-    local_filename = 'audiofiles/' +'filenow' + '.ogg'
+    local_filename = 'audiofiles/' + media_id + '.ogg'
     headers = {
-    'Authorization': 'Bearer EAAOd0ul3j9YBAJZBJXmttTeGhVcSrdyTofTpjZAnd8nZABA3vWsyrlDRZCWq6y7DmMg1RbhbeeuKLoCp2hxLtzaweixXXybIMBx6uvJdAqvZBErYMyI8amZCDEsYKfz0igPbHEcL1KrZBPkZAiGup61P0PfTOedJQZBEm9ShmfGD6A2nTOwqqEaZA1Bn4P0nOcq62BXkC1hOrwQPRcbyDFguoFRFF8YoOSw3gZD',
+    'Authorization': 'Bearer '+accessToken,
     }
     response = requests.get('https://graph.facebook.com/v13.0/'+media_id, headers=headers)
     response_json = response.json()

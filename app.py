@@ -3,15 +3,23 @@ from flask import Flask, request
 from helper import download_file
 from dotenv import load_dotenv
 load_dotenv()
-Token = os.getenv("TOKEN")
-AccessToken = os.getenv("ACCESS_TOKEN")
+
+is_prod = os.environ.get('IS_HEROKU', None)
+
+if is_prod:
+    #here goes all your heroku config
+    Token = os.environ.get('TOKEN', None)
+    AccessToken = os.environ.get('ACCESS_TOKEN', None)
+else:  
+    Token = os.getenv("TOKEN")
+    AccessToken = os.getenv("ACCESS_TOKEN")
 
 app = Flask(__name__)
 
 
 @app.route('/')
 def intro1():
-    return "<h1>Hello World from macOS and heroku and corrected!!</h1>" + Token
+    return "<h1>Hello World from macOS and heroku and corrected!!</h1>" + Token + AccessToken
 
 
 @app.route('/webhook', methods=['POST', 'GET'])
