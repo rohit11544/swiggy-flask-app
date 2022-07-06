@@ -21,14 +21,16 @@ def sendMsz(AccessToken,phone_num,phone_num_id,body):
   headers = {
       'Authorization': 'Bearer '+AccessToken,
   }
-
   json_data = {
-      'messaging_product': 'whatsapp',
-      'to': '91'+phone_num,
-      'type': 'text',
-    "text": {
-          "body": body
-      }
+    'messaging_product': 'whatsapp',
+    'to': phone_num,
+    'type': 'template',
+    'template': {
+        'name': 'hello_world',
+        'language': {
+            'code': 'en_US',
+        },
+    },
   }
   response = requests.post('https://graph.facebook.com/v13.0/'+phone_num_id+'/messages', headers=headers, json=json_data)
   return response.status_code
