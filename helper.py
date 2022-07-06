@@ -7,7 +7,7 @@ import os
 
 
 def download_file(accessToken,media_id):
-    local_filename = f"{os.getcwd()}/audioFiles/alwhf/"+media_id + '.ogg'
+    local_filename = f"{os.getcwd()}/audioFiles/"+media_id + '.ogg'
     headers = {
     'Authorization': 'Bearer '+accessToken,
     }
