@@ -20,3 +20,9 @@ def download_file(accessToken,media_id):
             for chunk in r.iter_content(chunk_size=8192): 
                 f.write(chunk)
     return local_filename
+
+
+def find_audio_path(name, path):
+    for root, dirs, files in os.walk(path):
+        if name in files:
+            return os.path.join(root, name)

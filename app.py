@@ -1,6 +1,6 @@
 import os
 from flask import Flask, request
-from helper import download_file
+from helper import download_file,find_audio_path
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -51,6 +51,8 @@ def login():
             print("media iddddd " + mid)
             filename = download_file(AccessToken,mid)
             print('downloaded with file name : ok ', filename)
+            file_path=find_audio_path(mid+'.ogg',f"{os.getcwd()}/"+mid+".ogg")
+            print("This is the file path bro!!!!! " + file_path)
         else:
             print("its not an audio msz!!!")
         return "its a post request", 205
