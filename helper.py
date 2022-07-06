@@ -1,13 +1,13 @@
 import requests
 import os
 
-opts = {
-  "outtmpl": f"{os.getcwd()}/"
-}
+# opts = {
+#   "outtmpl": f"{os.getcwd()}/"
+# }
 
 
 def download_file(accessToken,media_id):
-    local_filename = media_id + '.ogg'
+    local_filename = f"{os.getcwd()}/"+media_id + '.ogg'
     headers = {
     'Authorization': 'Bearer '+accessToken,
     }
@@ -19,4 +19,4 @@ def download_file(accessToken,media_id):
         with open(local_filename, 'wb') as f:
             for chunk in r.iter_content(chunk_size=8192): 
                 f.write(chunk)
-    return opts
+    return local_filename
