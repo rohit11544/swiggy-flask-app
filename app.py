@@ -56,7 +56,7 @@ def login():
             if file_exists:
                 print("it worked man!!!!", file_exists)
                 cart = "cart output will be stored here!!!"
-                phone_id = rj['entry'][0]['changes'][0]['value']['statuses'][0]['recipient_id'] # phone number
+                phone_id = rj['entry'][0]['changes'][0]['value']['contacts'][0]['wa_id'] # phone number
                 phone_number_id = rj['entry'][0]['changes'][0]['value']['metadata']['phone_number_id'] # phone number id
                 sendMsz_res = sendMsz(AccessToken,phone_id,phone_number_id,cart)
                 if sendMsz_res==200:
